@@ -6,7 +6,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark'
 import cx from 'classnames'
 import style from './TodoItem.module.sass'
 
-export default function TodoItem ({ tasks, deleteHandler, isFinish }) {
+export default function TodoItem({ tasks, deleteHandler, isFinish, progres }) {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
   return (
     <div className={style.itemContainer}>
@@ -15,6 +15,7 @@ export default function TodoItem ({ tasks, deleteHandler, isFinish }) {
           <div key={item.id} className={style.item}>
             <Checkbox
               {...label}
+              onClick={() => progres(item.id)}
               onChange={() => isFinish(item.id)}
               icon={<BookmarkBorderIcon />}
               checkedIcon={<BookmarkIcon />}
